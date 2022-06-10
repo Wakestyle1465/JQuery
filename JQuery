@@ -1,0 +1,59 @@
+1.console.log ('Let's get ready to party with JQuery!')
+2. $('article img').addClass(image-center)
+3. $('article p:last-child').remove()
+4. $('h1').css('fontSize', Math.floor(Math.random()*100) + 0)
+5.('ol').append('<li> Hi! <\li>')
+6. ('ol').replaceWith('<p> So sorry about that mess up! </p>')
+7.  $(".form-control").on('keyup blur change', function () {
+      let red = $(".form-control").eq(0).val();
+      let blue = $(".form-control").eq(1).val();
+      let green = $(".form-control").eq(2).val();
+      $("body").css("background-color",
+          "rgb(" + red + "," + green + "," + blue + ")");
+    });
+8. $('img').on('click', function(e){
+ $('e.target').remove()
+}
+
+Html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ratings</title>
+</head>
+<body>
+    <h1 id = h1>
+        Movie Ratings
+    </h1>
+    <form action="">
+        <input type="text" name="title" id="title">
+        <input type="range" name="rating" id="rating"min = 0 max =10 value="0">
+        <button type="submit" id = 'submit'>Submit Rating</button>
+    </form>
+    <button id = 'delete'>Remove Film</button>
+    <ul>
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="ObjOri.js"></script>
+
+</body>
+</html>
+
+JS
+$('#submit').on('click',function(evt){
+    evt.preventDefault()
+    let rating = $('#rating').val()
+    let movieName = $('#title').val()
+    let movie = (`Movie: ${movieName} <br> Rating: ${rating}`)
+    $('ul').append(`<li> ${movie}</li>`)
+    $('#title').val('')
+    $('#rating').val('-5')
+})
+
+$('#delete').on('click',function(evt){
+    evt.preventDefault()
+    $('ul li:last-child').remove()
+})
